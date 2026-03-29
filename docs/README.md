@@ -4,7 +4,7 @@ Welcome to the official documentation and structural ecosystem for **E.E.D.A**, 
 
 ## 🏝️ Project Overview
 
-**E.E.D.A** (formerly known as Isla Digital) is a dual-platform educational ecosystem:
+**E.E.D.A** is a dual-platform educational ecosystem:
 
 1.  **Mobile (Android Native)**: Built with Kotlin and Jetpack Compose.
 2.  **Desktop/Multi (Python/Flet)**: Built with Python for advanced logic and cross-platform flexibility.
@@ -26,7 +26,7 @@ com.liebeblack.isla_digital/
  ├── data/                  # Capa de Acceso de Datos (Persistencia JSON)
  │    └── repository/ChildProfileRepositoryImpl.kt
  └── ui/                    # Capa de Interfaz y UI (Compose)
-      ├── theme/            # Paleta Isla Digital (Color.kt, Theme.kt)
+      ├── theme/            # Paleta E.E.D.A (Color.kt, Theme.kt)
       ├── components/       # BigButton.kt, GlassContainer.kt
       └── screens/home/     # HomeScreen.kt, HomeViewModel.kt
 ```
@@ -52,7 +52,7 @@ A pedagogical system translating complex cybersecurity concepts through the **CP
 
 ## 🚀 Getting Started
 
-1.  **Repository**: `git clone https://github.com/LiebeBlack/I.S.D.I.git`
+1.  **Repository**: `git clone https://github.com/LiebeBlack/E.E.D.A.git`
 2.  **Web Preview**: Open `index.html` in this directory to see the premium presentation.
 
 Designed with ❤️ for education.

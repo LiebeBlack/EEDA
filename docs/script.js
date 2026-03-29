@@ -1,5 +1,5 @@
 /**
- * E.D.D.E.A Central Hub Expanded Logic
+ * E.E.D.A Core Hub Logic
  * Managing extreme CSS classes, staggered scroll reveals.
  */
 

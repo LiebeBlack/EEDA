@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es-VE" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Técnica | E.D.D.E.A Core</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="ultra-dark">
+    <!-- PRELOADER ENGINE -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="loader-scan"></div>
+        <div class="loader-content">
+            <div class="loader-logo gradient-text-anim">E.D.D.E.A CORE</div>
+            <div class="loader-status">Cargando Pagina Web...</div>
+            <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+            <div class="loader-logs">
+                <span class="log-line">> Optimizando Pipelines de GPU...</span>
+                <span class="log-line">> Mapeando Ciclo C.P.A...</span>
+                <span class="log-line">> Desbloqueando Soberanía de Datos...</span>
+            </div>
+        </div>
+    </div>
+    <!-- BACKGROUND ENGINE -->
+    <div class="deep-cosmos-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="noise-layer"></div>
+        <div class="digital-grid"></div>
+    </div>
+
+    <nav class="nav-center scrolled" id="mainNav">
+        <div class="container flex-center">
+            <div class="nav-wrap">
+                <a href="index.html" class="logo-text gradient-text-anim">E.D.D.E.A</a>
+                <div class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="documentacion.html" class="active">Docs</a>
+                    <a href="metodologia.html">Metodología</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="nosotros.html">Proyecto</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container page-content" style="padding-top: 220px; padding-bottom: 100px;">
+        <header class="section-center section-glass-backing" data-aos="fade-up">
+            <span class="s-subtitle">Arquitectura de Alta Gama</span>
+            <h1 class="mega-title-extreme gradient-text-anim">Documentación del Núcleo</h1>
+            <p class="mega-subtitle-extreme">Especificaciones técnicas para el mantenimiento y escalabilidad del ecosistema E.D.D.E.A.</p>
+        </header>
+
+        <section class="grid-immense" style="margin-top: 50px;">
+            <!-- Layers -->
+            <div class="card-premium" data-aos="fade-up">
+                <div class="v-icon purple"><i data-lucide="layers-3"></i></div>
+                <h4 style="margin-top:20px;">Independencia del Dominio</h4>
+                <p>Nuestra lógica de negocio (Método CPA) reside en entidades agnósticas de frameworks. Si Flutter cambiara mañana, el motor de conocimiento persistiría.</p>
+            </div>
+            <!-- Security -->
+            <div class="card-premium" data-aos="fade-up" data-aos-delay="200">
+                <div class="v-icon blue"><i data-lucide="shield-check"></i></div>
+                <h4 style="margin-top:20px;">Criptografía Civil</h4>
+                <p>Implementación de AES-GCM 256 para el almacenamiento persistente mediante librerías de enlace nativo en Flutter Secure Storage y SQLCipher.</p>
+            </div>
+        </section>
+
+        <!-- Diagram Section -->
+        <section class="section-center section-glass-backing" data-aos="fade-up" style="margin-top: 100px;">
+            <div class="v-icon"><i data-lucide="git-branch"></i></div>
+            <h2 class="s-title">Flujo de Arquitectura Hexagonal</h2>
+            <div class="arch-diagram" style="margin-left: auto; margin-right: auto;">
+                <div class="arch-nodes" style="justify-content: center;">
+                    <div class="arch-node"><i data-lucide="database"></i>Data Sources</div>
+                    <div class="arch-node"><i data-lucide="git-merge"></i>Repositories</div>
+                    <div class="arch-node" style="border-width: 3px; border-color: #fff;"><i data-lucide="settings" style="color:#fff;"></i>Domain Entities</div>
+                    <div class="arch-node"><i data-lucide="play-circle"></i>Use Cases</div>
+                    <div class="arch-node"><i data-lucide="layout"></i>Presentation</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section class="section-center" data-aos="fade-up" style="margin-top: 100px;">
+            <div class="terminal-window">
+                <div class="term-header">
+                    <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+                    <span style="font-size: 0.7rem; margin-left:140px; color: #475569; font-family:var(--font-mono); font-weight:700; text-transform:uppercase;">lib/domain/use_cases/validate_cpa_state.dart</span>
+                </div>
+                <div class="term-body">
+                    <span class="term-info">class</span> <span class="term-success">ValidateCpaStateUseCase</span> {<br>
+                    &nbsp;&nbsp;<span class="term-info">final</span> <span class="term-success">ICognitiveRepository</span> _repo;<br><br>
+                    &nbsp;&nbsp;<span class="term-success">ValidateCpaStateUseCase</span>(<span class="term-info">this</span>._repo);<br><br>
+                    &nbsp;&nbsp;<span class="term-info">Future</span>&lt;<span class="term-success">CognitiveNode</span>&gt; <span class="term-success">call</span>(<span class="term-info">params</span>) <span class="term-info">async</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="term-path">// Logica de asimilación abstracta</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="term-info">return</span> <span class="term-info">await</span> _repo.<span class="term-success">evaluateAsm</span>();<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mega-footer">
+        <div class="container flex-center">
+            <h2 class="f-logo gradient-text-anim" style="font-size: 1.5rem;">E.D.D.E.A Docs</h2>
+            <div class="f-links">
+                <a href="index.html">Inicio</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        window.addEventListener('load', () => { setTimeout(() => {
+            const pl = document.getElementById('preloader');
+            if(pl) { pl.style.opacity = '0'; setTimeout(() => { pl.style.display = 'none'; document.body.style.overflow = 'auto'; }, 1000); }
+        }, 5000); });
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => { if (e.ctrlKey && (e.key==='u'||e.key==='c'||e.key==='s'||e.key==='i'||e.key==='j')) e.preventDefault(); if (e.key==='F12') e.preventDefault(); });
+    </script>
+</body>
+</html>

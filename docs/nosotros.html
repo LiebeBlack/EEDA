@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-VE" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre el Proyecto | E.D.D.E.A Core</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="ultra-dark">
+    <!-- PRELOADER ENGINE -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="loader-scan"></div>
+        <div class="loader-content">
+            <div class="loader-logo gradient-text-anim">E.D.D.E.A CORE</div>
+            <div class="loader-status">Cargando Pagina Web...</div>
+            <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+            <div class="loader-logs">
+                <span class="log-line">> Optimizando Pipelines de GPU...</span>
+                <span class="log-line">> Mapeando Ciclo C.P.A...</span>
+                <span class="log-line">> Desbloqueando Soberanía de Datos...</span>
+            </div>
+        </div>
+    </div>
+    <!-- BACKGROUND ENGINE -->
+    <div class="deep-cosmos-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="noise-layer"></div>
+        <div class="digital-grid"></div>
+    </div>
+
+    <nav class="nav-center scrolled" id="mainNav">
+        <div class="container flex-center">
+            <div class="nav-wrap">
+                <a href="index.html" class="logo-text gradient-text-anim">E.D.D.E.A</a>
+                <div class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="documentacion.html">Docs</a>
+                    <a href="metodologia.html">Metodología</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="nosotros.html" class="active">Proyecto</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container page-content" style="padding-top: 220px; padding-bottom: 200px;">
+        <header class="section-center" data-aos="fade-up">
+            <span class="s-subtitle">Misión y Autoría</span>
+            <h1 class="mega-title-extreme gradient-text-anim">Visión del Desarrollador</h1>
+            <p class="mega-subtitle-extreme">E.D.D.E.A no es solo software; es un compromiso con la soberanía técnica y la educación inclusiva.</p>
+        </header>
+
+        <section class="section-center" data-aos="fade-up">
+            <div class="author-void">
+                <div class="a-avatar"><i data-lucide="user"></i></div>
+                <h2 class="a-title gradient-text-anim">LiebeBlack</h2>
+                <p class="a-sub">Software Architect & Fullstack Writer</p>
+                <div class="grid-immense" style="margin-top:50px;">
+                    <div class="card-premium">
+                        <h4>Impacto Insular</h4>
+                        <p>Ubicados en la <strong>Isla de Margarita, Venezuela</strong>, trabajamos para cerrar la brecha digital desde comunidades locales proyectando tecnología hacia el mundo.</p>
+                    </div>
+                    <div class="card-premium">
+                        <h4>Filosofía Zero Bloat</h4>
+                        <p>Diseñamos hardware y software para funcionar sin latencia. Cada línea de código es purista y optimizada para despliegues fluidos en entornos remotos.</p>
+                    </div>
+                    <div class="card-premium">
+                        <h4>Ingeniería Social</h4>
+                        <p>Nuestra meta es proporcionar herramientas de alto nivel de forma accesible, permitiendo que la neurodiversidad sea una ventaja competitiva.</p>
+                    </div>
+                </div>
+                <p class="a-bio" style="margin-top:100px;">Nuestro motor es la excelencia técnica, la rigurosidad matemática y el deseo profundo de empoderar a las mentes jóvenes del mañana.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mega-footer">
+        <div class="container">
+            <h2 class="f-logo gradient-text-anim" style="font-size: 1.5rem;">E.D.D.E.A • Hub 2026</h2>
+            <p class="f-copy">&copy; 2026 E.D.D.E.A Ecosistema Educativo.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        window.addEventListener('load', () => { setTimeout(() => {
+            const pl = document.getElementById('preloader');
+            if(pl) { pl.style.opacity='0'; setTimeout(()=>{pl.style.display='none';document.body.style.overflow='auto';},1000); }
+        }, 5000); });
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('contextmenu', e=>e.preventDefault());
+        document.addEventListener('keydown', e=>{ if(e.ctrlKey&&(e.key==='u'||e.key==='c'||e.key==='s'||e.key==='i'||e.key==='j')) e.preventDefault(); if(e.key==='F12') e.preventDefault(); });
+    </script>
+</body>
+</html>

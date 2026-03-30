@@ -184,6 +184,68 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('paste', e => e.preventDefault());
     document.addEventListener('selectstart', e => e.preventDefault());
 
+    // 8. CONTACT FORM HANDLER (Fetch API + Formspree)
+    const contactForm = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm && successMsg && submitBtn) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const originalBtnContent = submitBtn.innerHTML;
+            
+            // UI State: Sending
+            submitBtn.innerHTML = "<i data-lucide='loader' class='animate-spin'></i> Transmitiendo...";
+            submitBtn.style.opacity = "0.7";
+            submitBtn.disabled = true;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // UI State: Success
+                    contactForm.reset();
+                    contactForm.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            } catch (error) {
+                console.error("Error en el protocolo de contacto:", error);
+                
+                // UI State: Error
+                submitBtn.innerHTML = "Error • Reintentar";
+                submitBtn.style.background = "var(--accent-magenta, #ff00ff)";
+                submitBtn.style.opacity = "1";
+                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.style.background = ""; // Restore original CSS background
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                }, 3000);
+            }
+        });
+    }
+
     console.log("%c E.E.D.A %c CORE Hub Active ", "color: #00fff2; background: #000; font-weight: bold; border-radius: 4px 0 0 4px; padding: 2px 4px;", "color: #fff; background: #9d00ff; font-weight: bold; border-radius: 0 4px 4px 0; padding: 2px 4px;");
     console.log("⚙️ Android Native Inject: KOTLIN/COMPOSE SUCCESS");
 });

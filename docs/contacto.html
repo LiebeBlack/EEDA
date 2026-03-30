@@ -1,36 +1,73 @@
 <!DOCTYPE html>
 <html lang="es-VE" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocolo de Contacto | E.E.D.A Core</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        .contact-glass { background: rgba(15, 15, 20, 0.45); backdrop-filter: blur(50px); border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); padding: 50px; max-width: 700px; margin: 0 auto; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
-        .form-input { width: 100%; margin-bottom: 25px; padding: 18px 25px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-family: var(--font-sans); outline: none; transition: 0.4s ease; text-align: left !important; }
-        .form-input:focus { border-color: var(--accent-cyan); background: rgba(0, 255, 242, 0.05); transform: translateY(-3px); }
+        .contact-glass {
+            background: rgba(15, 15, 20, 0.45);
+            backdrop-filter: blur(50px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .form-input {
+            width: 100%;
+            margin-bottom: 25px;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--font-sans);
+            outline: none;
+            transition: 0.4s ease;
+            text-align: left !important;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 255, 242, 0.05);
+            transform: translateY(-3px);
+        }
     </style>
 </head>
+
 <body class="ultra-dark">
-    <!-- PRELOADER ENGINE -->
+    <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
     <div id="preloader" class="preloader-overlay">
         <div class="loader-scan"></div>
         <div class="loader-content">
-            <div class="loader-logo gradient-text-anim">E.E.D.A CORE</div>
-            <div class="loader-status">Cargando Pagina Web...</div>
-            <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-            <div class="loader-logs">
-                <span class="log-line">> Optimizando Pipelines de GPU...</span>
-                <span class="log-line">> Mapeando Ciclo C.P.A...</span>
-                <span class="log-line">> Desbloqueando Soberanía de Datos...</span>
+            <div class="loader-logo">E.E.D.A CORE</div>
+
+            <div class="loader-status-wrap">
+                <div class="loader-status">Inicializando Protocolo...</div>
+                <div class="loader-percentage" id="loadPercent">0%</div>
+            </div>
+
+            <div class="loader-bar-wrap">
+                <div class="loader-bar" id="loadBar"></div>
+            </div>
+
+            <div class="loader-logs" id="loadLogs">
+                <!-- Logs dynamically injected via script.js -->
             </div>
         </div>
     </div>
@@ -45,49 +82,55 @@
     </div>
 
     <nav class="nav-center scrolled" id="mainNav">
-        <div class="container flex-center">
-            <div class="nav-wrap">
-                <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
-                <div class="nav-links">
-                    <a href="index.html">Inicio</a>
-                    <a href="documentacion.html">Docs</a>
-                    <a href="metodologia.html">Metodología</a>
-                    <a href="roadmap.html">Roadmap</a>
-                    <a href="nosotros.html">Proyecto</a>
-                    <a href="contacto.html" class="active">Contacto</a>
-                </div>
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
+
+            <!-- Mobile Toggle -->
+            <button class="nav-toggle" aria-label="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="documentacion.html">Docs</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="nosotros.html">Proyecto</a>
+                <a href="contacto.html" class="active">Contacto</a>
             </div>
         </div>
     </nav>
 
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 200px;">
         <header class="section-center" data-aos="fade-up">
-            <span class="s-subtitle">Comunicación Segura</span>
             <h1 class="mega-title-extreme gradient-text-anim">Establecer Protocolo</h1>
             <p class="mega-subtitle-extreme">Para alianzas, despliegues institucionales o soporte técnico masivo.</p>
         </header>
 
         <section class="contact-glass" data-aos="zoom-in" data-aos-delay="200">
-            <form id="contactForm" action="https://formspree.io/f/liebeblack01@gmail.com" method="POST">
-                <input type="text" name="nombre" placeholder="Entidad / Nombre" class="form-input" required>
+            <!-- NOTA: Para envío por AJAX desde localhost/web, usa tu ID de Formspree (Ej: https://formspree.io/f/ID_REAL) -->
+            <!-- NOTA: El envío de formularios no funcionará si abres el archivo directamente desde el sistema de archivos (file://). Debes usar un servidor local (Live Server, etc.) -->
+            <!-- Usando Endpoint Directo para evitar 404 (Sustituir con ID en cuenta de Formspree) -->
+            <form id="contactForm" action="https://formspree.io/liebeblack01@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Entidad / Nombre" class="form-input" required>
                 <input type="email" name="email" placeholder="Correo Electrónico @seguro" class="form-input" required>
-                <textarea name="mensaje" placeholder="Descripción del requerimiento técnico o propuesta pedagógica..." class="form-input" style="min-height: 200px;" required></textarea>
+                <textarea name="message" placeholder="Descripción del requerimiento técnico o propuesta pedagógica..."
+                    class="form-input" style="min-height: 200px;" required></textarea>
                 <button type="submit" id="submitBtn" class="btn-extreme btn-royal" style="width: 100%;">Transmitir Mensaje</button>
             </form>
-            
+
             <div id="successMsg" style="display:none; text-align:center; padding: 20px;">
-                <div class="v-icon green" style="margin: 0 auto 20px;"><i data-lucide="check-circle"></i></div>
                 <h3 class="gradient-text-anim" style="font-size: 1.8rem; margin-bottom: 15px;">Transmisión Exitosa</h3>
                 <p>La información ha sido enviada al protocolo central de LiebeBlack. Recibirá respuesta encriptada a la brevedad.</p>
             </div>
-            
+
             <div class="mt-large flex-center" style="gap:40px;">
                 <a href="https://github.com/LiebeBlack" target="_blank" class="hover:text-cyan transition-colors flex-center flex-col gap-2">
-                    <i data-lucide="github" class="w-8 h-8"></i>
+                    <i data-lucide="github"></i>
                     <span class="text-xs font-mono uppercase tracking-widest">LiebeBlack Hub</span>
                 </a>
                 <a href="#" class="hover:text-purple transition-colors flex-center flex-col gap-2 opacity-50 cursor-not-allowed">
-                    <i data-lucide="linkedin" class="w-8 h-8"></i>
+                    <i data-lucide="linkedin"></i>
                     <span class="text-xs font-mono uppercase tracking-widest">LinkedIn</span>
                 </a>
             </div>
@@ -107,43 +150,51 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
     <script>
-        lucide.createIcons();
-        window.addEventListener('load', () => { setTimeout(() => {
-            const pl = document.getElementById('preloader');
-            if(pl) { pl.style.opacity='0'; setTimeout(()=>{pl.style.display='none';document.body.style.overflow='auto';},1000); }
-        }, 5000); });
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('contextmenu', e=>e.preventDefault());
-        document.addEventListener('keydown', e=>{ if(e.ctrlKey&&(e.key==='u'||e.key==='c'||e.key==='s'||e.key==='i'||e.key==='j')) e.preventDefault(); if(e.key==='F12') e.preventDefault(); });
-
         const form = document.getElementById('contactForm');
         const success = document.getElementById('successMsg');
         const btn = document.getElementById('submitBtn');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            btn.innerHTML = "Transmitiendo...";
-            btn.style.opacity = "0.5";
-            btn.disabled = true;
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const originalBtnContent = btn.innerHTML;
 
-            const data = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
+                btn.innerHTML = "<i data-lucide='loader-2' class='animate-spin'></i> Transmitiendo...";
+                btn.style.opacity = "0.7";
+                btn.disabled = true;
+                lucide.createIcons();
+
+                const data = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                        lucide.createIcons();
+                    } else {
+                        throw new Error('Response not OK');
+                    }
+                } catch (error) {
+                    console.error("Error en el protocolo de contacto:", error);
+                    btn.innerHTML = "Error • Reintentar";
+                    btn.style.background = "var(--accent-magenta)";
+                    btn.style.opacity = "1";
+                    btn.disabled = false;
+                    setTimeout(() => {
+                        btn.innerHTML = originalBtnContent;
+                        btn.style.background = "var(--grad-royal)";
+                    }, 3000);
+                }
             });
-
-            if (response.ok) {
-                form.style.display = 'none';
-                success.style.display = 'block';
-                lucide.createIcons(); // Refresh for success icon
-            } else {
-                btn.innerHTML = "Error en Transmisión";
-                btn.style.opacity = "1";
-                btn.disabled = false;
-            }
-        });
+        }
     </script>
 </body>
+
 </html>

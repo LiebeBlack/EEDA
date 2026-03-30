@@ -33,20 +33,30 @@
 
 <body class="ultra-dark">
 
-    <!-- PRELOADER ENGINE (Realistic Modern Protocol) -->
+    <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
     <div id="preloader" class="preloader-overlay">
-        <div class="loader-scan"></div>
-        <div class="loader-content">
-            <div class="loader-logo gradient-text-anim">E.E.D.A CORE</div>
-            <div class="loader-status">Cargando Pagina Web...</div>
-            <div class="loader-bar-wrap">
-                <div class="loader-bar"></div>
+        <div class="loader-hud-full">
+            <!-- Left Pillar -->
+            <div class="loader-pillar left"></div>
+
+            <!-- Central HUD -->
+            <div class="loader-hud-container">
+                <div class="loader-reactor-wrap">
+                    <div class="loader-ring r1"></div>
+                    <div class="loader-ring r2"></div>
+                    <div class="loader-ring r3"></div>
+                    <div class="loader-percentage" id="loadPercent">0%</div>
+                </div>
+
+                <div class="loader-status-min" id="loadStatus">System Initializing...</div>
+
+                <div class="loader-terminal-detailed" id="loadLogs">
+                    <!-- Sequential Logs -->
+                </div>
             </div>
-            <div class="loader-logs">
-                <span class="log-line">> Optimizando Pipelines de GPU...</span>
-                <span class="log-line">> Mapeando Ciclo C.P.A...</span>
-                <span class="log-line">> Desbloqueando Soberanía de Datos...</span>
-            </div>
+
+            <!-- Right Pillar -->
+            <div class="loader-pillar right"></div>
         </div>
     </div>
 
@@ -62,17 +72,21 @@
 
     <!-- NAVIGATION -->
     <nav class="nav-center" id="mainNav">
-        <div class="container flex-center">
-            <div class="nav-wrap">
-                <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
-                <div class="nav-links">
-                    <a href="index.html" class="active">Inicio</a>
-                    <a href="documentacion.html">Docs</a>
-                    <a href="metodologia.html">Metodología</a>
-                    <a href="roadmap.html">Roadmap</a>
-                    <a href="nosotros.html">Proyecto</a>
-                    <a href="contacto.html">Contacto</a>
-                </div>
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
+            
+            <!-- Mobile Toggle -->
+            <button class="nav-toggle" aria-label="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">Inicio</a>
+                <a href="documentacion.html">Docs</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="nosotros.html">Proyecto</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </nav>
@@ -94,10 +108,6 @@
 
         <!-- DIVISIONES DEL PROYECTO -->
         <section id="divisiones" class="container section-center section-glass-backing" style="margin-top: 60px;">
-            <div class="v-icon green">
-                <i data-lucide="layout-grid"></i>
-            </div>
-            <span class="s-subtitle">Arquitectura del Ecosistema</span>
             <h2 class="s-title">Divisiones Operativas</h2>
             <p class="s-paragraph mb-12">
                 El proyecto E.E.D.A se estructura en cuatro pilares fundamentales de ingeniería que trabajan de forma
@@ -108,7 +118,7 @@
                 <div class="card-premium">
                     <div class="card-icon"><i data-lucide="smartphone"></i></div>
                     <h4>E.E.D.A Móvil (Android)</h4>
-                    <p>Brazo de interacción directa. Utiliza <strong>Flutter y el motor Impeller</strong> para entregar
+                    <p>Brazo de interacción directa. Desarrollado en <strong>Kotlin Nativo y Jetpack Compose</strong> para entregar
                         una experiencia gamificada libre de latencia (Jank-free), enfocada en el ciclo C.P.A.</p>
                 </div>
                 <div class="card-premium">
@@ -134,10 +144,6 @@
 
         <!-- VISION SECTION -->
         <section id="vision" class="container section-center section-glass-backing" style="margin-top: 80px;">
-            <div class="v-icon purple">
-                <i data-lucide="eye"></i>
-            </div>
-            <span class="s-subtitle">Visión Sistémica</span>
             <h2 class="s-title">Arquitectura para la Mente.</h2>
             <div class="s-paragraph">
                 <p>No construimos aplicaciones; forjamos entornos de aprendizaje resilientes. Cada línea de código en
@@ -162,10 +168,6 @@
 
         <!-- ECOSISTEMA Y ARQUITECTURA -->
         <section id="arquitectura" class="container section-center section-glass-backing" style="margin-top: 80px;">
-            <div class="v-icon green" data-aos="zoom-in">
-                <i data-lucide="cpu"></i>
-            </div>
-            <span class="s-subtitle" data-aos="fade-up">Infraestructura Crítica</span>
             <h2 class="s-title" data-aos="fade-up">Arquitectura de Datos y Procesamiento</h2>
             <div class="s-paragraph" data-aos="fade-up">
                 <p>E.E.D.A no es solo una interfaz; es un sistema de procesamiento cognitivo de alta fidelidad. Hemos
@@ -177,7 +179,7 @@
                 <div class="card-premium" data-aos="fade-up">
                     <div class="card-icon"><i data-lucide="zap"></i></div>
                     <h4>Latencia Zero-Jank</h4>
-                    <p>Cada frame es renderizado directamente por la GPU mediante el motor de composición de Flutter,
+                    <p>Cada frame es renderizado directamente por la GPU mediante el motor nativo de Jetpack Compose,
                         garantizando una fluidez de seda fundamental para el enfoque ADHD.</p>
                 </div>
                 <div class="card-premium" data-aos="fade-up" data-aos-delay="200">
@@ -191,10 +193,6 @@
 
         <!-- IMPACTO Y PEDAGOGÍA -->
         <section id="impacto" class="container section-center section-glass-backing" style="margin-top: 80px;">
-            <div class="v-icon blue" data-aos="zoom-in">
-                <i data-lucide="globe"></i>
-            </div>
-            <span class="s-subtitle" data-aos="fade-up">Propósito Humanitario</span>
             <h2 class="s-title" data-aos="fade-up">Soberanía Tecnológica Nacional</h2>
             <p class="s-paragraph mb-12" data-aos="fade-up">
                 Desarrollado en la <strong>Isla de Margarita</strong>, el proyecto E.E.D.A busca establecer un
@@ -218,7 +216,6 @@
 
         <!-- PROJECT HUB -->
         <section id="proyectos" class="container section-center">
-            <span class="s-subtitle" data-aos="fade-up">Ecosistema E.E.D.A</span>
             <h2 class="s-title" data-aos="fade-up">Repositorios Maestros</h2>
 
             <div class="project-immense-grid">
@@ -229,10 +226,10 @@
                         <span class="p-title">E.E.D.A - Android</span>
                         <div class="p-icon"><i data-lucide="smartphone"></i></div>
                     </div>
-                    <p>Motor de gamificación móvil basado en Flutter. Implementa el ciclo C.P.A en tiempo real con
-                        aceleración GPU mediante Impeller.</p>
+                    <p>Motor de gamificación móvil nativo basado en Kotlin. Implementa el ciclo C.P.A en tiempo real con
+                        aceleración GPU mediante Jetpack Compose.</p>
                     <div class="p-tags">
-                        <span class="p-tag">Dart</span> <span class="p-tag">Skia</span> <span class="p-tag">MVI</span>
+                        <span class="p-tag">Kotlin</span> <span class="p-tag">Compose</span> <span class="p-tag">Flow</span>
                     </div>
                 </a>
 
@@ -256,9 +253,6 @@
         <!-- AUTHOR SECTION -->
         <section class="container section-center">
             <div class="author-void" data-aos="zoom-in">
-                <div class="a-avatar">
-                    <i data-lucide="terminal"></i>
-                </div>
                 <h2 class="a-title gradient-text-anim">LiebeBlack</h2>
                 <p class="a-sub">Software Architect & Fullstack Writer</p>
                 <p class="a-bio">
@@ -290,41 +284,10 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
     <script>
-        lucide.createIcons();
-        // AOS Desactivado para aparición instantánea (Zero Lag)
-        // AOS.init({ duration: 80, ... }); 
-
-        // Security Protocol (Anti-Copy / Anti-DevTools)
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 's' || e.key === 'i' || e.key === 'j')) e.preventDefault();
-            if (e.key === 'F12') e.preventDefault();
-        });
-
-        // Header scroll logic
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (nav && window.scrollY > 50) nav.classList.add('scrolled');
-            else if (nav) nav.classList.remove('scrolled');
-        });
-
-        // Preloader Logic (5 Second Core Initialization)
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const preloader = document.getElementById('preloader');
-                if (preloader) {
-                    preloader.style.opacity = '0';
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                        document.body.style.overflow = 'auto'; // Re-enable scroll
-                    }, 1200);
-                }
-            }, 5000); 
-        });
-        
-        // Prevent scroll while loading
-        document.body.style.overflow = 'hidden';
+        // AOS Desactivado opcionalmente
+        // AOS.init({ duration: 800 }); 
     </script>
 </body>
 </html>

@@ -15,17 +15,23 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="ultra-dark">
-    <!-- PRELOADER ENGINE -->
+    <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
     <div id="preloader" class="preloader-overlay">
         <div class="loader-scan"></div>
         <div class="loader-content">
-            <div class="loader-logo gradient-text-anim">E.E.D.A CORE</div>
-            <div class="loader-status">Cargando Pagina Web...</div>
-            <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-            <div class="loader-logs">
-                <span class="log-line">> Optimizando Pipelines de GPU...</span>
-                <span class="log-line">> Mapeando Ciclo C.P.A...</span>
-                <span class="log-line">> Desbloqueando Soberanía de Datos...</span>
+            <div class="loader-logo">E.E.D.A CORE</div>
+            
+            <div class="loader-status-wrap">
+                <div class="loader-status">Inicializando Protocolo...</div>
+                <div class="loader-percentage" id="loadPercent">0%</div>
+            </div>
+
+            <div class="loader-bar-wrap">
+                <div class="loader-bar" id="loadBar"></div>
+            </div>
+
+            <div class="loader-logs" id="loadLogs">
+                <!-- Logs dynamically injected via script.js -->
             </div>
         </div>
     </div>
@@ -40,24 +46,27 @@
     </div>
 
     <nav class="nav-center scrolled" id="mainNav">
-        <div class="container flex-center">
-            <div class="nav-wrap">
-                <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
-                <div class="nav-links">
-                    <a href="index.html">Inicio</a>
-                    <a href="documentacion.html" class="active">Docs</a>
-                    <a href="metodologia.html">Metodología</a>
-                    <a href="roadmap.html">Roadmap</a>
-                    <a href="nosotros.html">Proyecto</a>
-                    <a href="contacto.html">Contacto</a>
-                </div>
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
+            
+            <!-- Mobile Toggle -->
+            <button class="nav-toggle" aria-label="Abrir Menú">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="documentacion.html" class="active">Docs</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="nosotros.html">Proyecto</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </nav>
 
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 100px;">
         <header class="section-center section-glass-backing" data-aos="fade-up">
-            <span class="s-subtitle">Arquitectura de Alta Gama</span>
             <h1 class="mega-title-extreme gradient-text-anim">Documentación del Núcleo</h1>
             <p class="mega-subtitle-extreme">Especificaciones técnicas para el mantenimiento y escalabilidad del ecosistema E.E.D.A.</p>
         </header>
@@ -67,19 +76,18 @@
             <div class="card-premium" data-aos="fade-up">
                 <div class="v-icon purple"><i data-lucide="layers-3"></i></div>
                 <h4 style="margin-top:20px;">Independencia del Dominio</h4>
-                <p>Nuestra lógica de negocio (Método CPA) reside en entidades agnósticas de frameworks. Si Flutter cambiara mañana, el motor de conocimiento persistiría.</p>
+                <p>Nuestra lógica de negocio (Método CPA) reside en entidades agnósticas de frameworks. La arquitectura purista garantiza que el motor de conocimiento sea portátil y resiliente.</p>
             </div>
             <!-- Security -->
             <div class="card-premium" data-aos="fade-up" data-aos-delay="200">
                 <div class="v-icon blue"><i data-lucide="shield-check"></i></div>
                 <h4 style="margin-top:20px;">Criptografía Civil</h4>
-                <p>Implementación de AES-GCM 256 para el almacenamiento persistente mediante librerías de enlace nativo en Flutter Secure Storage y SQLCipher.</p>
+                <p>Implementación de AES-GCM 256 para el almacenamiento persistente mediante librerías nativas como EncryptedSharedPreferences y SQLCipher.</p>
             </div>
         </section>
 
         <!-- Diagram Section -->
         <section class="section-center section-glass-backing" data-aos="fade-up" style="margin-top: 100px;">
-            <div class="v-icon"><i data-lucide="git-branch"></i></div>
             <h2 class="s-title">Flujo de Arquitectura Hexagonal</h2>
             <div class="arch-diagram" style="margin-left: auto; margin-right: auto;">
                 <div class="arch-nodes" style="justify-content: center;">
@@ -125,15 +133,6 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        lucide.createIcons();
-        window.addEventListener('load', () => { setTimeout(() => {
-            const pl = document.getElementById('preloader');
-            if(pl) { pl.style.opacity = '0'; setTimeout(() => { pl.style.display = 'none'; document.body.style.overflow = 'auto'; }, 1000); }
-        }, 5000); });
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => { if (e.ctrlKey && (e.key==='u'||e.key==='c'||e.key==='s'||e.key==='i'||e.key==='j')) e.preventDefault(); if (e.key==='F12') e.preventDefault(); });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

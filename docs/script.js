@@ -1,9 +1,85 @@
 /**
  * E.E.D.A Core Hub Logic
  * Optimized for Android and Desktop performance.
+ * Dual Navigation: Desktop Top Bar + Mobile Bottom Tabs
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // =====================================================
+    // 0. DEVICE DETECTION (User Agent + Screen Width)
+    // =====================================================
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
+    const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(userAgent);
+    const isSmallScreen = window.innerWidth <= 768;
+    const isMobile = isMobileUA || isSmallScreen;
+
+    // Apply device class to body
+    document.body.classList.add(isMobile ? 'is-mobile' : 'is-desktop');
+
+    // Re-check on resize (for Chrome DevTools toggle)
+    window.addEventListener('resize', () => {
+        const nowSmall = window.innerWidth <= 768;
+        if (nowSmall && !document.body.classList.contains('is-mobile')) {
+            document.body.classList.remove('is-desktop');
+            document.body.classList.add('is-mobile');
+            injectMobileTabBar();
+        } else if (!nowSmall && !isMobileUA && document.body.classList.contains('is-mobile')) {
+            document.body.classList.remove('is-mobile');
+            document.body.classList.add('is-desktop');
+            const existingBar = document.getElementById('mobileTabBar');
+            if (existingBar) existingBar.remove();
+        }
+    });
+
+    // =====================================================
+    // 0B. INJECT MOBILE BOTTOM TAB BAR
+    // =====================================================
+    function injectMobileTabBar() {
+        if (document.getElementById('mobileTabBar')) return; // Already exists
+
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        const tabs = [
+            { href: 'index.html',          icon: 'home',       label: 'Inicio'  },
+            { href: 'documentacion.html',   icon: 'file-text',  label: 'Docs'    },
+            { href: 'metodologia.html',     icon: 'brain',      label: 'Método'  },
+            { href: 'roadmap.html',         icon: 'map',        label: 'Roadmap' },
+            { href: 'nosotros.html',        icon: 'users',      label: 'Info'    },
+            { href: 'contacto.html',        icon: 'mail',       label: 'Contacto'}
+        ];
+
+        const tabBar = document.createElement('nav');
+        tabBar.id = 'mobileTabBar';
+        tabBar.className = 'mobile-tab-bar';
+        tabBar.setAttribute('aria-label', 'Navegación Móvil');
+
+        const inner = document.createElement('div');
+        inner.className = 'mobile-tab-bar-inner';
+
+        tabs.forEach(tab => {
+            const a = document.createElement('a');
+            a.href = tab.href;
+            a.className = 'mobile-tab-item';
+            if (currentPage === tab.href || (currentPage === '' && tab.href === 'index.html')) {
+                a.classList.add('tab-active');
+            }
+            a.innerHTML = `<i data-lucide="${tab.icon}"></i><span>${tab.label}</span>`;
+            inner.appendChild(a);
+        });
+
+        tabBar.appendChild(inner);
+        document.body.appendChild(tabBar);
+
+        // Render Lucide icons in the new tab bar
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    }
+
+    if (isMobile) {
+        injectMobileTabBar();
+    }
     
     // 1. WEB-HUB PRELOADER (Cyber-Core 12.0 - Real Web Engine Bootstrap)
     const preloader = document.getElementById('preloader');
@@ -72,13 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links a');
 
+    const safeCreateIcons = () => {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    };
+
     if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navToggle.innerHTML = navLinks.classList.contains('active') 
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.toggle('active');
+            navToggle.innerHTML = isOpen 
                 ? '<i data-lucide="x"></i>' 
                 : '<i data-lucide="menu"></i>';
-            lucide.createIcons();
+            // Lock/unlock body scroll
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            safeCreateIcons();
         });
 
         // Close menu when clicking a link
@@ -86,8 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 navToggle.innerHTML = '<i data-lucide="menu"></i>';
-                lucide.createIcons();
+                document.body.style.overflow = '';
+                safeCreateIcons();
             });
+        });
+
+        // Close menu when clicking outside (on the overlay background)
+        navLinks.addEventListener('click', (e) => {
+            if (e.target === navLinks) {
+                navLinks.classList.remove('active');
+                navToggle.innerHTML = '<i data-lucide="menu"></i>';
+                document.body.style.overflow = '';
+                safeCreateIcons();
+            }
         });
     }
 

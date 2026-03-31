@@ -15,6 +15,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         .contact-glass {
@@ -85,10 +86,14 @@
         <div class="container nav-wrap">
             <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
 
-            <!-- Mobile Toggle -->
-            <button class="nav-toggle" aria-label="Abrir Menú">
-                <i data-lucide="menu"></i>
-            </button>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar Tema">
+                    <i data-lucide="sun" id="themeIcon"></i>
+                </button>
+                <button class="nav-toggle" aria-label="Abrir Menú">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
 
             <div class="nav-links">
                 <a href="index.html">Inicio</a>

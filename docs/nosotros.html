@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="es-VE" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre el Proyecto | E.E.D.A Core</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body class="ultra-dark">
     <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
     <div id="preloader" class="preloader-overlay">
         <div class="loader-scan"></div>
         <div class="loader-content">
             <div class="loader-logo">E.E.D.A CORE</div>
-            
+
             <div class="loader-status-wrap">
                 <div class="loader-status">Inicializando Protocolo...</div>
                 <div class="loader-percentage" id="loadPercent">0%</div>
@@ -48,11 +53,15 @@
     <nav class="nav-center scrolled" id="mainNav">
         <div class="container nav-wrap">
             <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
-            
-            <!-- Mobile Toggle -->
-            <button class="nav-toggle" aria-label="Abrir Menú">
-                <i data-lucide="menu"></i>
-            </button>
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar Tema">
+                    <i data-lucide="sun" id="themeIcon"></i>
+                </button>
+                <button class="nav-toggle" aria-label="Abrir Menú">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
 
             <div class="nav-links">
                 <a href="index.html">Inicio</a>
@@ -68,28 +77,48 @@
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 200px;">
         <header class="section-center" data-aos="fade-up">
             <h1 class="mega-title-extreme gradient-text-anim">Visión del Desarrollador</h1>
-            <p class="mega-subtitle-extreme">E.E.D.A no es solo software; es un compromiso con la soberanía técnica y la educación inclusiva.</p>
+            <p class="mega-subtitle-extreme">E.E.D.A no es solo software; es un compromiso con la soberanía técnica y la
+                educación inclusiva.</p>
         </header>
 
         <section class="section-center" data-aos="fade-up">
-            <div class="author-void">
-                <h2 class="a-title gradient-text-anim">LiebeBlack</h2>
-                <p class="a-sub">Software Architect & Fullstack Writer</p>
+            <div class="author-void flex-center flex-col">
+                <img src="https://avatars.githubusercontent.com/u/120873507" alt="Níkolas Gómez Avatar"
+                    style="width:140px; height:140px; border-radius:50%; border:3px solid var(--accent-cyan); box-shadow: 0 0 25px rgba(2, 132, 199, 0.3); margin-bottom:20px; object-fit: cover;">
+
+                <h2 class="a-title gradient-text-anim" style="text-align: center;">Níkolas Gómez (Liebe Black)</h2>
+                <p class="a-sub" style="margin-bottom: 2rem; text-align: center;">Software Architect & Fullstack Writer
+                </p>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://github.com/LiebeBlack" target="_blank" class="btn-void"
+                        style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                        <i data-lucide="github" style="width: 20px; height: 20px;"></i> GitHub Profile
+                    </a>
+                    <a href="https://liebeblack.github.io/LiebeBlack/" target="_blank" class="btn-cyber"
+                        style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                        <i data-lucide="globe" style="width: 20px; height: 20px;"></i> Portafolio Web
+                    </a>
+                </div>
                 <div class="grid-immense" style="margin-top:50px;">
                     <div class="card-premium">
                         <h4>Impacto Insular</h4>
-                        <p>Ubicados en la <strong>Isla de Margarita, Venezuela</strong>, trabajamos para cerrar la brecha digital desde comunidades locales proyectando tecnología hacia el mundo.</p>
+                        <p>Ubicados en la <strong>Isla de Margarita, Venezuela</strong>, trabajamos para cerrar la
+                            brecha digital desde comunidades locales proyectando tecnología hacia el mundo.</p>
                     </div>
                     <div class="card-premium">
                         <h4>Filosofía Zero Bloat</h4>
-                        <p>Diseñamos hardware y software para funcionar sin latencia. Cada línea de código es purista y optimizada para despliegues fluidos en entornos remotos.</p>
+                        <p>Diseñamos software para funcionar sin latencia. Cada línea de código es purista y optimizada.
+                        </p>
                     </div>
                     <div class="card-premium">
                         <h4>Ingeniería Social</h4>
-                        <p>Nuestra meta es proporcionar herramientas de alto nivel de forma accesible, permitiendo que la neurodiversidad sea una ventaja competitiva.</p>
+                        <p>Nuestra meta es proporcionar herramientas de alto nivel de forma accesible, permitiendo que
+                            la neurodiversidad sea una ventaja competitiva.</p>
                     </div>
                 </div>
-                <p class="a-bio" style="margin-top:100px;">Nuestro motor es la excelencia técnica, la rigurosidad matemática y el deseo profundo de empoderar a las mentes jóvenes del mañana.</p>
+                <p class="a-bio" style="margin-top:100px;">Nuestro motor es la excelencia técnica, la rigurosidad
+                    matemática y el deseo profundo de empoderar a las mentes jóvenes del mañana.</p>
             </div>
         </section>
     </main>
@@ -104,4 +133,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

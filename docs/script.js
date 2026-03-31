@@ -7,7 +7,77 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =====================================================
-    // 0. DEVICE DETECTION (User Agent + Screen Width)
+    // 00. THEME ENGINE (Strict OS Sync & Live Detection)
+    // =====================================================
+    const themeIcon = document.getElementById('themeIcon');
+    const sysPrefMedia = window.matchMedia('(prefers-color-scheme: light)');
+
+    const applyTheme = (themeStr) => {
+        if (themeStr === 'light') {
+            document.body.classList.remove('ultra-dark');
+            document.body.classList.add('light-theme');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', 'moon');
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+            }
+        } else {
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('ultra-dark');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', 'sun');
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+            }
+        }
+    };
+
+    // 1. Initial State: Always strictly sync with Browser/OS (Purge old cache locks)
+    localStorage.removeItem('eeda-theme'); 
+    applyTheme(sysPrefMedia.matches ? 'light' : 'dark');
+
+    // 2. Listen to real-time Browser/OS Theme Changes natively
+    const themeChangeHandler = (e) => {
+        applyTheme(e.matches ? 'light' : 'dark');
+    };
+
+    if (sysPrefMedia.addEventListener) {
+        sysPrefMedia.addEventListener('change', themeChangeHandler);
+    } else if (sysPrefMedia.addListener) {
+        // Fallback for older iOS/Android Browsers
+        sysPrefMedia.addListener(themeChangeHandler); 
+    }
+    
+    // 3. User Quick-Toggle (Temporary override for current page viewing)
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLightNow = document.body.classList.contains('light-theme');
+            applyTheme(isLightNow ? 'dark' : 'light');
+        });
+    }
+
+    // =====================================================
+    // 0A. WPO HARDWARE DETECTION (Gama Baja vs Alta)
+    // =====================================================
+    const hardwareCores = navigator.hardwareConcurrency || 4;
+    const deviceMemory = navigator.deviceMemory || 4;
+    let effType = '4g';
+    if (navigator.connection && navigator.connection.effectiveType) {
+        effType = navigator.connection.effectiveType;
+    }
+    
+    // Clasificación de Gama Baja: menos de 4 núcleos, menos de 4GB RAM, o conexión 2G/3G.
+    const isLowEnd = hardwareCores < 4 || deviceMemory < 4 || effType === '2g' || effType === '3g';
+    
+    if (isLowEnd) {
+        document.body.classList.add('low-end');
+        console.log("WPO Status: [LOW-END DEVICE]. Optimizando TTI, desactivando Glassmorphism y limitando FPS.");
+    } else {
+        document.body.classList.add('high-end');
+        console.log("WPO Status: [HIGH-END DEVICE]. Activando Motor Gráfico Ultra Premium Dark.");
+    }
+
+    // =====================================================
+    // 0B. DEVICE DETECTION (User Agent + Screen Width)
     // =====================================================
     const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
     const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(userAgent);
@@ -105,8 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         let currentPercent = 0;
-        const totalDuration = 2000 + Math.random() * 2000;
-        const interval = 20;
+        // WPO: En Gama Baja, TTI inmediato. En Gama Alta, experiencia visual inmersiva.
+        const totalDuration = isLowEnd ? 100 : (2000 + Math.random() * 2000);
+        const interval = isLowEnd ? 5 : 20;
         const step = 100 / (totalDuration / interval);
         let logIndex = 0;
 
@@ -137,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         preloader.style.display = 'none';
                         document.body.style.overflow = 'auto';
-                    }, 1000);
-                }, 600);
+                    }, isLowEnd ? 50 : 1000);
+                }, isLowEnd ? 50 : 600);
             }
         }, interval);
     }
@@ -243,13 +314,20 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // Initialize AOS (Animate On Scroll)
-    if (typeof AOS !== 'undefined') {
+    // WPO: Deshabilitar AOS (Animaciones al Scroll) en Gama Baja para salvar CPU/GPU
+    if (typeof AOS !== 'undefined' && !isLowEnd) {
         AOS.init({
             duration: 800,
             easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
             once: true,
             offset: 50
+        });
+    } else if (isLowEnd) {
+        // Aseguramos de que si AOS estaba en el HTML, los elementos sean visibles
+        document.querySelectorAll('[data-aos]').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.style.transition = 'none';
         });
     }
 

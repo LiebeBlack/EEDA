@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, interval);
     }
 
-    // 2. MOBILE MENU ENGINE
+    // 2. MOBILE MENU ENGINE - Enhanced Touch Support
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -226,16 +226,33 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (navToggle && navLinks) {
-        navToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
+        // Prevent double-tap zoom on iOS
+        let lastTouchEnd = 0;
+        navToggle.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+
+        // Click handler with touch support
+        const toggleMenu = (e) => {
+            if (e) e.preventDefault();
             const isOpen = navLinks.classList.toggle('active');
             navToggle.innerHTML = isOpen 
                 ? '<i data-lucide="x"></i>' 
                 : '<i data-lucide="menu"></i>';
             // Lock/unlock body scroll
             document.body.style.overflow = isOpen ? 'hidden' : '';
+            // Add/remove active state for styling
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            navLinks.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
             safeCreateIcons();
-        });
+        };
+
+        navToggle.addEventListener('click', toggleMenu);
+        navToggle.addEventListener('touchstart', toggleMenu, { passive: true });
 
         // Close menu when clicking a link
         navLinksItems.forEach(item => {
@@ -243,6 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.classList.remove('active');
                 navToggle.innerHTML = '<i data-lucide="menu"></i>';
                 document.body.style.overflow = '';
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
                 safeCreateIcons();
             });
         });
@@ -253,9 +272,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.classList.remove('active');
                 navToggle.innerHTML = '<i data-lucide="menu"></i>';
                 document.body.style.overflow = '';
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
                 safeCreateIcons();
             }
         });
+
+        // Swipe to close menu
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        navLinks.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        navLinks.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 80; // pixels
+            const diff = touchStartX - touchEndX;
+            
+            // Swipe left to close (common pattern)
+            if (diff > swipeThreshold && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.innerHTML = '<i data-lucide="menu"></i>';
+                document.body.style.overflow = '';
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
+                safeCreateIcons();
+            }
+        }
+
+        // Keyboard support - ESC to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.innerHTML = '<i data-lucide="menu"></i>';
+                document.body.style.overflow = '';
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
+                safeCreateIcons();
+            }
+        });
+
+        // Initialize ARIA attributes
+        navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+        navToggle.setAttribute('aria-controls', 'nav-links');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navLinks.setAttribute('id', 'nav-links');
+        navLinks.setAttribute('aria-hidden', 'true');
     }
 
     // 3. NAVIGATION SCROLL HANDLER (Fixed ID)

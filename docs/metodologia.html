@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metodología CPA | E.E.D.A Core</title>
+    <title>Metodología CPA | E.E.D.A</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="ultra-dark">
     <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
@@ -24,14 +24,14 @@
 
             <div class="loader-status-wrap">
                 <div class="loader-status">Inicializando Protocolo...</div>
-                <div class="loader-percentage" id="loadPercent">0%</div>
+                <div class="loader-percentage" id="loadPercent" aria-live="polite">0%</div>
             </div>
 
             <div class="loader-bar-wrap">
                 <div class="loader-bar" id="loadBar"></div>
             </div>
 
-            <div class="loader-logs" id="loadLogs">
+            <div class="loader-logs" id="loadLogs" role="log" aria-live="polite">
                 <!-- Logs dynamically injected via script.js -->
             </div>
         </div>
@@ -73,9 +73,9 @@
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 100px;">
         <!-- Header -->
         <header class="section-center section-glass-backing" data-aos="fade-up">
-            <h1 class="mega-title-extreme gradient-text-anim">Método C.P.A</h1>
+            <h1 class="mega-title-extreme gradient-text-anim">Método CPA</h1>
             <p class="mega-subtitle-extreme">
-                El puente definitivo entre la realidad tangible y la abstracción matemática pura, optimizado para perfiles neurodivergentes.
+                Secuencia pedagógica que conecta lo tangible con lo abstracto mediante representaciones intermedias.
             </p>
         </header>
 
@@ -84,38 +84,38 @@
             <!-- CONCRETO -->
             <div class="card-premium" data-aos="fade-up">
                 <div class="card-icon"><i data-lucide="hand"></i></div>
-                <h4>1. Concreto</h4>
-                <p>Uso de manipulativos físicos u objetos digitales hápticos. El estudiante toca y siente la cantidad, construyendo la base sensorial necesaria para el cerebro neurodivergente.</p>
+                <h4>1. Etapa Concreta</h4>
+                <p>El aprendizaje comienza con objetos físicos o representaciones digitales táctiles que el estudiante puede manipular directamente, estableciendo bases sensoriales sólidas.</p>
             </div>
             <!-- PICTÓRICO -->
             <div class="card-premium" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-icon"><i data-lucide="image"></i></div>
-                <h4>2. Pictórico</h4>
-                <p>Representación visual de los objetos mediante diagramas, barras y gráficos de alta definición. Transforma la acción física en un modelo mental visual persistente.</p>
+                <h4>2. Etapa Pictórica</h4>
+                <p>Transición a representaciones visuales: diagramas, gráficos e ilustraciones que organizan la información de forma estructurada antes de introducir símbolos.</p>
             </div>
             <!-- ABSTRACTO -->
             <div class="card-premium" data-aos="fade-up" data-aos-delay="400">
                 <div class="card-icon"><i data-lucide="binary"></i></div>
-                <h4>3. Abstracto</h4>
-                <p>Consolidación de símbolos y algoritmos matemáticos. El estudiante opera números con una comprensión profunda del "por qué" detrás del símbolo.</p>
+                <h4>3. Etapa Abstracta</h4>
+                <p>Uso de notación matemática formal. El estudiante opera con símbolos y algoritmos comprendiendo la lógica subyacente gracias a las etapas previas.</p>
             </div>
         </section>
 
         <!-- Neuro Section -->
         <section class="section-center" data-aos="fade-up" style="margin-top: 100px;">
-            <h2 class="s-title">Beneficios en la Neurodiversidad</h2>
+            <h2 class="s-title">Beneficios para la Diversidad Cognitiva</h2>
             <div class="grid-immense" style="text-align: left;">
                 <div class="card-premium">
-                    <h5 class="term-info">Reducción de Carga Sensorial</h5>
-                    <p>Interfaces de alto contraste y baja saturación (Dark Mode) que evitan la sobre-estimulación del tálamo, permitiendo enfoques prolongados en ADHD.</p>
+                    <h5 class="term-info">Reducción de Sobrecarga Sensorial</h5>
+                    <p>Interfaces con alto contraste y paletas reducidas que minimizan la fatiga visual, facilitando sesiones de aprendizaje extendidas.</p>
                 </div>
                 <div class="card-premium">
-                    <h5 class="term-info">Estructura Predecible</h5>
-                    <p>Ciclos iterativos constantes que reducen la ansiedad por incertidumbre, fundamental para estudiantes en el espectro autista (TEA).</p>
+                    <h5 class="term-info">Estructura Predictible</h5>
+                    <p>Secuencias consistentes que reducen la ansiedad ante lo desconocido, proporcionando estabilidad cognitiva durante el proceso educativo.</p>
                 </div>
                 <div class="card-premium">
-                    <h5 class="term-info">Memoria Muscular</h5>
-                    <p>Vinculación de la lógica con impulsos hápticos (vibración y respuesta táctil) para anclar el conocimiento en la memoria de largo plazo.</p>
+                    <h5 class="term-info">Anclaje Multisensorial</h5>
+                    <p>Combinación de estímulos visuales, táctiles y auditivos que fortalecen la retención en la memoria de largo plazo mediante codificación múltiple.</p>
                 </div>
             </div>
         </section>
@@ -135,5 +135,14 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

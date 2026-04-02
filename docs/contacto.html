@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo de Contacto | E.E.D.A Core</title>
+    <title>Contacto | E.E.D.A</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>
         .contact-glass {
             background: rgba(15, 15, 20, 0.45);
@@ -27,26 +27,6 @@
             max-width: 700px;
             margin: 0 auto;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-        }
-
-        .form-input {
-            width: 100%;
-            margin-bottom: 25px;
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: #fff;
-            font-family: var(--font-sans);
-            outline: none;
-            transition: 0.4s ease;
-            text-align: left !important;
-        }
-
-        .form-input:focus {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 255, 242, 0.05);
-            transform: translateY(-3px);
         }
     </style>
 </head>
@@ -60,14 +40,14 @@
 
             <div class="loader-status-wrap">
                 <div class="loader-status">Inicializando Protocolo...</div>
-                <div class="loader-percentage" id="loadPercent">0%</div>
+                <div class="loader-percentage" id="loadPercent" aria-live="polite">0%</div>
             </div>
 
             <div class="loader-bar-wrap">
                 <div class="loader-bar" id="loadBar"></div>
             </div>
 
-            <div class="loader-logs" id="loadLogs">
+            <div class="loader-logs" id="loadLogs" role="log" aria-live="polite">
                 <!-- Logs dynamically injected via script.js -->
             </div>
         </div>
@@ -108,30 +88,27 @@
 
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 200px;">
         <header class="section-center" data-aos="fade-up">
-            <h1 class="mega-title-extreme gradient-text-anim">Establecer Protocolo</h1>
-            <p class="mega-subtitle-extreme">Para alianzas, despliegues institucionales o soporte técnico masivo.</p>
+            <h1 class="mega-title-extreme gradient-text-anim">Contacto</h1>
+            <p class="mega-subtitle-extreme">Para consultas, propuestas de colaboración o soporte técnico.</p>
         </header>
 
         <section class="contact-glass" data-aos="zoom-in" data-aos-delay="200">
-            <!-- NOTA: Para envío por AJAX desde localhost/web, usa tu ID de Formspree (Ej: https://formspree.io/f/ID_REAL) -->
-            <!-- NOTA: El envío de formularios no funcionará si abres el archivo directamente desde el sistema de archivos (file://). Debes usar un servidor local (Live Server, etc.) -->
-            <!-- Usando Endpoint Directo para evitar 404 (Sustituir con ID en cuenta de Formspree) -->
             <form id="contactForm" action="https://formspree.io/f/xpqopvkd" method="POST" enctype="multipart/form-data">
-                <input type="text" name="name" placeholder="Entidad / Nombre" class="form-input" required>
-                <input type="email" name="email" placeholder="Correo Electrónico @seguro" class="form-input" required>
-                <input type="file" name="attachment" class="form-input" aria-label="Archivo Adjunto">
-                <textarea name="message" placeholder="Descripción del requerimiento técnico o propuesta pedagógica..."
+                <input type="text" name="name" placeholder="Nombre / Organización" class="form-input" required>
+                <input type="email" name="email" placeholder="Correo electrónico" class="form-input" required>
+                <input type="file" name="attachment" class="form-input" aria-label="Adjuntar archivo">
+                <textarea name="message" placeholder="Describa su consulta o propuesta..."
                     class="form-input" style="min-height: 200px;" required></textarea>
-                <button type="submit" id="submitBtn" class="btn-extreme btn-royal" style="width: 100%;">Transmitir Mensaje</button>
+                <button type="submit" id="submitBtn" class="btn-extreme btn-royal" style="width: 100%;" aria-label="Enviar mensaje">Enviar Mensaje</button>
             </form>
 
-            <div id="successMsg" style="display:none; text-align:center; padding: 20px;">
-                <h3 class="gradient-text-anim" style="font-size: 1.8rem; margin-bottom: 15px;">Transmisión Exitosa</h3>
-                <p>La información ha sido enviada al protocolo central de LiebeBlack. Recibirá respuesta encriptada a la brevedad.</p>
+            <div id="successMsg" style="display:none; text-align:center; padding: 20px;" role="alert" aria-live="polite">
+                <h3 class="gradient-text-anim" style="font-size: 1.8rem; margin-bottom: 15px;">Mensaje Enviado</h3>
+                <p>Su consulta ha sido recibida. Responderemos en el menor tiempo posible.</p>
             </div>
 
             <div class="mt-large flex-center" style="gap:40px;">
-                <a href="https://github.com/LiebeBlack" target="_blank" class="hover:text-cyan transition-colors flex-center flex-col gap-2">
+                <a href="https://github.com/LiebeBlack" target="_blank" rel="noopener noreferrer" class="hover:text-cyan transition-colors flex-center flex-col gap-2">
                     <i data-lucide="github"></i>
                     <span class="text-xs font-mono uppercase tracking-widest">LiebeBlack Hub</span>
                 </a>
@@ -157,6 +134,15 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 
 </html>

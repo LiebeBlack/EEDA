@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentación Técnica | E.E.D.A Core</title>
+    <title>Documentación Técnica | E.E.D.A</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body class="ultra-dark">
     <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
@@ -24,14 +24,14 @@
 
             <div class="loader-status-wrap">
                 <div class="loader-status">Inicializando Protocolo...</div>
-                <div class="loader-percentage" id="loadPercent">0%</div>
+                <div class="loader-percentage" id="loadPercent" aria-live="polite">0%</div>
             </div>
 
             <div class="loader-bar-wrap">
                 <div class="loader-bar" id="loadBar"></div>
             </div>
 
-            <div class="loader-logs" id="loadLogs">
+            <div class="loader-logs" id="loadLogs" role="log" aria-live="polite">
                 <!-- Logs dynamically injected via script.js -->
             </div>
         </div>
@@ -72,33 +72,33 @@
 
     <main class="container page-content" style="padding-top: 220px; padding-bottom: 100px;">
         <header class="section-center section-glass-backing" data-aos="fade-up">
-            <h1 class="mega-title-extreme gradient-text-anim">Documentación del Núcleo</h1>
-            <p class="mega-subtitle-extreme">Especificaciones técnicas para el mantenimiento y escalabilidad del ecosistema E.E.D.A.</p>
+            <h1 class="mega-title-extreme gradient-text-anim">Documentación Técnica</h1>
+            <p class="mega-subtitle-extreme">Guía de implementación, arquitectura y estándares de desarrollo del ecosistema E.E.D.A.</p>
         </header>
 
         <section class="grid-immense" style="margin-top: 50px;">
             <!-- Layers -->
             <div class="card-premium" data-aos="fade-up">
                 <div class="v-icon purple"><i data-lucide="layers-3"></i></div>
-                <h4 style="margin-top:20px;">Independencia del Dominio</h4>
-                <p>Nuestra lógica de negocio (Método CPA) reside en entidades agnósticas de frameworks. La arquitectura purista garantiza que el motor de conocimiento sea portátil y resiliente.</p>
+                <h4 style="margin-top:20px;">Arquitectura de Dominio</h4>
+                <p>La lógica de negocio está organizada en entidades independientes de frameworks externos. Esta separación permite migrar, escalar o modificar componentes sin afectar el núcleo operativo.</p>
             </div>
             <!-- Security -->
             <div class="card-premium" data-aos="fade-up" data-aos-delay="200">
                 <div class="v-icon blue"><i data-lucide="shield-check"></i></div>
-                <h4 style="margin-top:20px;">Criptografía Civil</h4>
-                <p>Implementación de AES-GCM 256 para el almacenamiento persistente mediante librerías nativas como EncryptedSharedPreferences y SQLCipher.</p>
+                <h4 style="margin-top:20px;">Cifrado de Datos</h4>
+                <p>Implementación de AES-GCM 256 para almacenamiento local mediante librerías nativas como EncryptedSharedPreferences y SQLCipher, garantizando la confidencialidad de la información sensible.</p>
             </div>
         </section>
 
         <!-- Diagram Section -->
         <section class="section-center section-glass-backing" data-aos="fade-up" style="margin-top: 100px;">
-            <h2 class="s-title">Flujo de Arquitectura Hexagonal</h2>
+            <h2 class="s-title">Estructura de Arquitectura Limpia</h2>
             <div class="arch-diagram" style="margin-left: auto; margin-right: auto;">
                 <div class="arch-nodes" style="justify-content: center;">
                     <div class="arch-node"><i data-lucide="database"></i>Data Sources</div>
                     <div class="arch-node"><i data-lucide="git-merge"></i>Repositories</div>
-                    <div class="arch-node" style="border-width: 3px; border-color: #fff;"><i data-lucide="settings" style="color:#fff;"></i>Domain Entities</div>
+                    <div class="arch-node" style="border-width: 3px; border-color: #fff;"><i data-lucide="settings" style="color:#fff;"></i>Domain</div>
                     <div class="arch-node"><i data-lucide="play-circle"></i>Use Cases</div>
                     <div class="arch-node"><i data-lucide="layout"></i>Presentation</div>
                 </div>
@@ -139,5 +139,14 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

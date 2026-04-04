@@ -267,6 +267,52 @@
                 </p>
             </div>
         </section>
+        <!-- TELEMETRÍA / DASHBOARD -->
+        <section id="telemetria" class="container section-center">
+            <div class="telemetry-header" data-aos="fade-up">
+                <h2 class="s-title">Panel de Telemetría</h2>
+                <div class="system-status">
+                    <span class="pulse-indicator"></span>
+                    <span class="status-text">Sistema Online</span>
+                </div>
+            </div>
+            
+            <!-- Grid de 3 métricas rápidas -->
+            <div class="metrics-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i data-lucide="git-commit"></i>
+                    </div>
+                    <div class="metric-value" id="metric-commits">--</div>
+                    <div class="metric-label">Commits Totales</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="metric-value" id="metric-users">--</div>
+                    <div class="metric-label">Usuarios Activos</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <div class="metric-value" id="metric-status">Activo</div>
+                    <div class="metric-label">Estado</div>
+                </div>
+            </div>
+            
+            <!-- Contenedor grande del gráfico -->
+            <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="chart-header">
+                    <h3>Actividad del Proyecto</h3>
+                    <span class="last-update" id="last-update">Actualizando...</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chart-actividad"></canvas>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -288,6 +334,8 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/dashboard.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
     <script>

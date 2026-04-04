@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es-VE" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E.E.D.A | Analytics & Telemetría Completa</title>
+
+    <!-- Meta/SEO -->
+    <meta name="description"
+        content="Dashboard de Analytics E.E.D.A - Métricas, telemetría del proyecto y estadísticas de desarrollo.">
+    <meta name="theme-color" content="#030712">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body class="ultra-dark analytics-page">
+
+    <!-- NAVIGATION -->
+    <nav class="nav-glass">
+        <div class="container nav-center">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-e">E.</span><span class="logo-e">E.</span><span class="logo-d">D.</span><span class="logo-a">A</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="analytics.html" class="active">Analytics</a>
+                <a href="documentacion.html">Docs</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO ANALYTICS -->
+    <header class="analytics-hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <span class="pulse-indicator"></span>
+                    <span>Sistema de Telemetría Activo</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text-anim">Centro de Analytics</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Monitorización en tiempo real del ecosistema E.E.D.A. Métricas de desarrollo, 
+                    rendimiento del proyecto y análisis de telemetría.
+                </p>
+                <div class="hero-meta">
+                    <span class="meta-item">
+                        <i data-lucide="clock"></i>
+                        <span id="last-update-hero">Actualizando...</span>
+                    </span>
+                    <span class="meta-item">
+                        <i data-lucide="shield-check"></i>
+                        <span>Datos encriptados</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-grid-bg"></div>
+    </header>
+
+    <!-- KPI DASHBOARD -->
+    <section class="kpi-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">KPIs Principales</h2>
+            
+            <div class="kpi-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- KPI 1 -->
+                <div class="kpi-card large">
+                    <div class="kpi-header">
+                        <div class="kpi-icon primary">
+                            <i data-lucide="git-commit"></i>
+                        </div>
+                        <span class="kpi-trend up">
+                            <i data-lucide="trending-up"></i> +12%
+                        </span>
+                    </div>
+                    <div class="kpi-value" id="kpi-commits">--</div>
+                    <div class="kpi-label">Total Commits</div>
+                    <div class="kpi-chart-mini" id="mini-chart-commits"></div>
+                </div>
+
+                <!-- KPI 2 -->
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon success">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <span class="kpi-trend up">
+                            <i data-lucide="trending-up"></i> +5%
+                        </span>
+                    </div>
+                    <div class="kpi-value" id="kpi-completados">--</div>
+                    <div class="kpi-label">Proyectos Completados</div>
+                </div>
+
+                <!-- KPI 3 -->
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon warning">
+                            <i data-lucide="alert-circle"></i>
+                        </div>
+                        <span class="kpi-trend down">
+                            <i data-lucide="trending-down"></i> -8%
+                        </span>
+                    </div>
+                    <div class="kpi-value" id="kpi-issues">--</div>
+                    <div class="kpi-label">Issues Abiertos</div>
+                </div>
+
+                <!-- KPI 4 -->
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon info">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <span class="kpi-trend neutral">
+                            <i data-lucide="minus"></i> 0%
+                        </span>
+                    </div>
+                    <div class="kpi-value" id="kpi-eficiencia">--</div>
+                    <div class="kpi-label">Eficiencia del Sistema</div>
+                </div>
+
+                <!-- KPI 5 -->
+                <div class="kpi-card wide">
+                    <div class="kpi-header">
+                        <div class="kpi-icon accent">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <span class="status-badge online">Online</span>
+                    </div>
+                    <div class="system-metrics">
+                        <div class="metric-row">
+                            <span>Latencia API</span>
+                            <span class="metric-bar">
+                                <span class="fill" style="width: 23%"></span>
+                            </span>
+                            <span class="metric-value">23ms</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Uptime</span>
+                            <span class="metric-bar">
+                                <span class="fill success" style="width: 99.9%"></span>
+                            </span>
+                            <span class="metric-value">99.9%</span>
+                        </div>
+                        <div class="metric-row">
+                            <span>Última sincronización</span>
+                            <span class="metric-value" id="kpi-last-sync">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHARTS SECTION -->
+    <section class="charts-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Visualización de Datos</h2>
+            
+            <div class="charts-grid">
+                <!-- Main Chart -->
+                <div class="chart-card main" data-aos="fade-up" data-aos-delay="100">
+                    <div class="chart-header">
+                        <div>
+                            <h3>Actividad del Proyecto</h3>
+                            <p class="chart-subtitle">Evolución temporal de commits y contribuciones</p>
+                        </div>
+                        <div class="chart-controls">
+                            <button class="btn-chart active" data-period="6m">6M</button>
+                            <button class="btn-chart" data-period="1y">1A</button>
+                            <button class="btn-chart" data-period="all">Todo</button>
+                        </div>
+                    </div>
+                    <div class="chart-container-large">
+                        <canvas id="chart-main-activity"></canvas>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="dot" style="background: #00d4ff;"></span>
+                            <span>Commits</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="dot" style="background: #8b5cf6;"></span>
+                            <span>Pull Requests</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="dot" style="background: #10b981;"></span>
+                            <span>Issues Resueltos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Chart 1 -->
+                <div class="chart-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="chart-header">
+                        <h3>Distribución por Módulo</h3>
+                    </div>
+                    <div class="chart-container-medium">
+                        <canvas id="chart-distribution"></canvas>
+                    </div>
+                </div>
+
+                <!-- Secondary Chart 2 -->
+                <div class="chart-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="chart-header">
+                        <h3>Rendimiento Semanal</h3>
+                    </div>
+                    <div class="chart-container-medium">
+                        <canvas id="chart-weekly"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TELEMETRY INFO -->
+    <section class="telemetry-info-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Información de Telemetría</h2>
+            
+            <div class="info-grid">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-icon">
+                        <i data-lucide="server"></i>
+                    </div>
+                    <h3>Infraestructura</h3>
+                    <p>El sistema E.E.D.A opera sobre una arquitectura serverless distribuida, 
+                    utilizando GitHub Pages para el frontend y GitHub Actions para la 
+                    automatización de métricas.</p>
+                    <ul class="info-list">
+                        <li><i data-lucide="check"></i> Hosting: GitHub Pages</li>
+                        <li><i data-lucide="check"></i> CI/CD: GitHub Actions</li>
+                        <li><i data-lucide="check"></i> Datos: JSON estático + API GitHub</li>
+                        <li><i data-lucide="check"></i> Actualización: Automática cada 24h</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-icon">
+                        <i data-lucide="bar-chart-2"></i>
+                    </div>
+                    <h3>Métricas Trackeadas</h3>
+                    <p>Nuestro sistema recopila y analiza múltiples dimensiones del desarrollo 
+                    del proyecto para mantener una visión integral del progreso.</p>
+                    <ul class="info-list">
+                        <li><i data-lucide="git-commit"></i> Conteo de commits</li>
+                        <li><i data-lucide="circle-dot"></i> Issues abiertos/cerrados</li>
+                        <li><i data-lucide="git-pull-request"></i> Pull requests</li>
+                        <li><i data-lucide="users"></i> Contribuidores activos</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3>Seguridad & Privacidad</h3>
+                    <p>Todos los datos de telemetría se procesan localmente y se transmiten 
+                    mediante conexiones seguras. No almacenamos datos personales de usuarios.</p>
+                    <ul class="info-list">
+                        <li><i data-lucide="lock"></i> Conexiones HTTPS forzadas</li>
+                        <li><i data-lucide="key"></i> Tokens de API seguros</li>
+                        <li><i data-lucide="eye-off"></i> Sin tracking de usuarios</li>
+                        <li><i data-lucide="file-code"></i> Código open source</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT STATS TABLE -->
+    <section class="stats-table-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Estadísticas Detalladas</h2>
+            
+            <div class="table-card" data-aos="fade-up" data-aos-delay="100">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Valor Actual</th>
+                            <th>Cambio (7d)</th>
+                            <th>Tendencia</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-table-body">
+                        <tr>
+                            <td>
+                                <i data-lucide="git-commit" class="table-icon"></i>
+                                Commits Totales
+                            </td>
+                            <td class="value" id="table-commits">--</td>
+                            <td class="change positive">+24</td>
+                            <td class="trend">
+                                <span class="trend-bar">
+                                    <span class="fill" style="width: 75%"></span>
+                                </span>
+                            </td>
+                            <td><span class="status good">Óptimo</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i data-lucide="circle-dot" class="table-icon"></i>
+                                Issues Abiertos
+                            </td>
+                            <td class="value" id="table-issues">--</td>
+                            <td class="change negative">-3</td>
+                            <td class="trend">
+                                <span class="trend-bar">
+                                    <span class="fill warning" style="width: 35%"></span>
+                                </span>
+                            </td>
+                            <td><span class="status warning">Atención</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i data-lucide="git-branch" class="table-icon"></i>
+                                Ramas Activas
+                            </td>
+                            <td class="value">12</td>
+                            <td class="change neutral">0</td>
+                            <td class="trend">
+                                <span class="trend-bar">
+                                    <span class="fill" style="width: 60%"></span>
+                                </span>
+                            </td>
+                            <td><span class="status good">Estable</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i data-lucide="users" class="table-icon"></i>
+                                Contribuidores
+                            </td>
+                            <td class="value">3</td>
+                            <td class="change positive">+1</td>
+                            <td class="trend">
+                                <span class="trend-bar">
+                                    <span class="fill" style="width: 45%"></span>
+                                </span>
+                            </td>
+                            <td><span class="status good">Creciendo</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i data-lucide="clock" class="table-icon"></i>
+                                Tiempo Medio Resolución
+                            </td>
+                            <td class="value">2.4 días</td>
+                            <td class="change positive">-0.8</td>
+                            <td class="trend">
+                                <span class="trend-bar">
+                                    <span class="fill success" style="width: 85%"></span>
+                                </span>
+                            </td>
+                            <td><span class="status good">Excelente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2>¿Quieres contribuir al proyecto?</h2>
+                    <p>E.E.D.A es un proyecto open source. Tu contribución puede ayudar a mejorar 
+                    la educación mediante la ingeniería de software.</p>
+                    <div class="cta-buttons">
+                        <a href="https://github.com/YolandaGomez/EEDA" target="_blank" class="btn-primary">
+                            <i data-lucide="github"></i>
+                            Ver en GitHub
+                        </a>
+                        <a href="documentacion.html" class="btn-secondary">
+                            <i data-lucide="book-open"></i>
+                            Documentación
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <span class="number" id="cta-commits">--</span>
+                        <span class="label">Commits</span>
+                    </div>
+                    <div class="cta-stat">
+                        <span class="number" id="cta-stars">--</span>
+                        <span class="label">Stars</span>
+                    </div>
+                    <div class="cta-stat">
+                        <span class="number">100%</span>
+                        <span class="label">Open Source</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mega-footer">
+        <div class="container">
+            <h2 class="f-logo gradient-text-anim">E.E.D.A</h2>
+            <p class="f-moto">2026 • E.E.D.A • Venezuela • Analytics Dashboard</p>
+            <div class="f-links">
+                <a href="index.html">Inicio</a>
+                <a href="analytics.html">Analytics</a>
+                <a href="documentacion.html">Docs</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="roadmap.html">Roadmap</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <p class="f-copy">
+                &copy; 2026 LiebeBlack. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/analytics.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "actividad": {
+    "labels": ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+    "datos": [12, 19, 15, 25, 32, 28]
+  },
+  "metricas": {
+    "total_proyectos": 47,
+    "activos": 32,
+    "completados": 15,
+    "eficiencia": "94%"
+  }
+}

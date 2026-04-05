@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'documentacion.html',   icon: 'file-text',  label: 'Docs'    },
             { href: 'metodologia.html',     icon: 'brain',      label: 'Método'  },
             { href: 'roadmap.html',         icon: 'map',        label: 'Roadmap' },
-            { href: 'nosotros.html',        icon: 'users',      label: 'Info'    },
+            { href: 'analytics.html',       icon: 'activity',   label: 'Telemetría' },
             { href: 'contacto.html',        icon: 'mail',       label: 'Contacto'}
         ];
 

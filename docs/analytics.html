@@ -25,17 +25,24 @@
 <body class="ultra-dark analytics-page">
 
     <!-- NAVIGATION -->
-    <nav class="nav-glass">
-        <div class="container nav-center">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-e">E.</span><span class="logo-e">E.</span><span class="logo-d">D.</span><span class="logo-a">A</span>
-            </a>
+    <nav class="nav-center" id="mainNav">
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo-text gradient-text-anim">E.E.D.A</a>
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <button class="nav-toggle" aria-label="Abrir Menú">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
             <div class="nav-links">
                 <a href="index.html">Inicio</a>
-                <a href="analytics.html" class="active">Analytics</a>
                 <a href="documentacion.html">Docs</a>
                 <a href="metodologia.html">Metodología</a>
                 <a href="roadmap.html">Roadmap</a>
+                <a href="nosotros.html">Proyecto</a>
+                <a href="analytics.html" class="active">Telemetría</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </nav>
@@ -419,7 +426,7 @@
             <p class="f-moto">2026 • E.E.D.A • Venezuela • Analytics Dashboard</p>
             <div class="f-links">
                 <a href="index.html">Inicio</a>
-                <a href="analytics.html">Analytics</a>
+                <a href="analytics.html">Telemetría</a>
                 <a href="documentacion.html">Docs</a>
                 <a href="metodologia.html">Metodología</a>
                 <a href="roadmap.html">Roadmap</a>
@@ -431,13 +438,31 @@
         </div>
     </footer>
 
+    <!-- Forzar tema oscuro en telemetría -->
+    <script>
+        // Bloquear cambio de tema en analytics - solo tema oscuro permitido
+        document.body.classList.remove('light-theme');
+        document.body.classList.add('ultra-dark');
+        
+        // Sobrescribir función de tema para esta página
+        window.addEventListener('DOMContentLoaded', function() {
+            // Forzar tema oscuro inmediatamente
+            document.body.classList.remove('light-theme');
+            document.body.classList.add('ultra-dark');
+            
+            // Desactivar botón de tema si existe (por seguridad)
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.style.display = 'none';
+            }
+        });
+    </script>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/analytics-config.js"></script>
     <script src="js/analytics.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        lucide.createIcons();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

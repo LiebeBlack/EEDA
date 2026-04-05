@@ -14,17 +14,6 @@
     
     <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            if (typeof lucide !== 'undefined' && lucide.createIcons) {
-                try {
-                    lucide.createIcons();
-                } catch(e) {
-                    console.warn('Lucide init error:', e);
-                }
-            }
-        });
-    </script>
 </head>
 <body class="ultra-dark">
     <!-- PRELOADER ENGINE (Realistic Modern Protocol 2.0) -->
@@ -76,6 +65,7 @@
                 <a href="metodologia.html">Metodología</a>
                 <a href="roadmap.html">Roadmap</a>
                 <a href="nosotros.html">Proyecto</a>
+                <a href="analytics.html">Telemetría</a>
                 <a href="contacto.html">Contacto</a>
             </div>
         </div>
@@ -151,14 +141,5 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Initialize AOS animations
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-        });
-    </script>
 </body>
 </html>

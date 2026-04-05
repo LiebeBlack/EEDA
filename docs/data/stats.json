@@ -1,12 +1,93 @@
 {
+  "timestamp": "2024-01-15T10:30:00Z",
+  "proyecto": {
+    "nombre": "E.E.D.A",
+    "version": "2.0.0",
+    "estado": "activo",
+    "fecha_inicio": "2024-06-01"
+  },
+  "github": {
+    "total_commits": 247,
+    "commits_semana": [12, 19, 15, 25, 32, 28, 35],
+    "open_issues": 12,
+    "closed_issues": 45,
+    "pull_requests": 8,
+    "pull_requests_merged": 42,
+    "contributors": 3,
+    "branches": 8,
+    "releases": 5,
+    "forks": 7,
+    "stars": 24
+  },
+  "repositorios": [
+    { "nombre": "E.E.D.A-Android", "commits": 98, "lenguaje": "Kotlin", "porcentaje": 40 },
+    { "nombre": "E.E.D.A-PC", "commits": 67, "lenguaje": "Python", "porcentaje": 27 },
+    { "nombre": "E.E.D.A-Core", "commits": 45, "lenguaje": "Kotlin", "porcentaje": 18 },
+    { "nombre": "E.E.D.A-Docs", "commits": 37, "lenguaje": "HTML/CSS", "porcentaje": 15 }
+  ],
   "actividad": {
     "labels": ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
-    "datos": [12, 19, 15, 25, 32, 28]
+    "datos": [12, 19, 15, 25, 32, 28],
+    "pull_requests": [8, 12, 10, 15, 18, 16],
+    "issues_resueltos": [5, 8, 6, 10, 13, 11]
   },
   "metricas": {
     "total_proyectos": 47,
     "activos": 32,
     "completados": 15,
-    "eficiencia": "94%"
+    "eficiencia": "94%",
+    "velocidad_promedio": 23,
+    "tasa_exito": 87,
+    "satisfaccion": 4.8
+  },
+  "rendimiento": {
+    "uptime": 99.9,
+    "latencia_api": 23,
+    "tiempo_resolucion": 2.4,
+    "commits_semanales": 156,
+    "issues_por_dia": 0.8
+  },
+  "desarrollo": {
+    "modulos": [
+      { "nombre": "Frontend", "porcentaje": 35, "lineas": 12500 },
+      { "nombre": "Backend", "porcentaje": 30, "lineas": 9800 },
+      { "nombre": "DevOps", "porcentaje": 15, "lineas": 4200 },
+      { "nombre": "Docs", "porcentaje": 12, "lineas": 3500 },
+      { "nombre": "Testing", "porcentaje": 8, "lineas": 2800 }
+    ],
+    "tecnologias": [
+      { "nombre": "Kotlin", "uso": 45 },
+      { "nombre": "Python", "uso": 30 },
+      { "nombre": "JavaScript", "uso": 15 },
+      { "nombre": "HTML/CSS", "uso": 10 }
+    ],
+    "semanal": {
+      "dias": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+      "actividad": [65, 78, 90, 81, 86, 45, 30],
+      "commits": [8, 12, 15, 14, 18, 5, 3],
+      "issues": [2, 3, 1, 4, 2, 0, 0]
+    }
+  },
+  "contribuidores": [
+    { "nombre": "Níkolas Gómez", "usuario": "LiebeBlack", "commits": 198, "porcentaje": 80, "avatar": "https://avatars.githubusercontent.com/u/120873507" },
+    { "nombre": "Contribuidor 2", "usuario": "contrib2", "commits": 32, "porcentaje": 13, "avatar": "" },
+    { "nombre": "Contribuidor 3", "usuario": "contrib3", "commits": 17, "porcentaje": 7, "avatar": "" }
+  ],
+  "roadmap": {
+    "completado": 75,
+    "pendiente": 25,
+    "hitos": [
+      { "nombre": "Fase 1: Fundamentos", "estado": "completado", "progreso": 100 },
+      { "nombre": "Fase 2: Core Features", "estado": "completado", "progreso": 100 },
+      { "nombre": "Fase 3: Optimización", "estado": "en_progreso", "progreso": 60 },
+      { "nombre": "Fase 4: Expansión", "estado": "pendiente", "progreso": 0 }
+    ]
+  },
+  "calidad": {
+    "cobertura_tests": 78,
+    "bugs_criticos": 0,
+    "bugs_menores": 12,
+    "deuda_tecnica": 15,
+    "documentacion": 85
   }
 }

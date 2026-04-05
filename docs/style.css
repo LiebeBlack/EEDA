@@ -911,7 +911,6 @@ strong {
 /* Preloader Moved to End for Priority */
 
 @keyframes coreEntrance { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes logSlide { to { opacity: 1; transform: translateY(0); } }
 @keyframes rotateCW { to { transform: rotate(360deg); } }
 @keyframes rotateCCW { to { transform: rotate(-360deg); } }
 
@@ -1034,11 +1033,7 @@ strong {
 @keyframes contentInitial { from { transform: scale(0.9) rotateX(20deg); opacity: 0; } to { transform: scale(1) rotateX(10deg); opacity: 1; } }
 @keyframes glitchLogo { 0% { opacity: 0.8; transform: translate(2px, -1px); } 50% { opacity: 0.5; transform: translate(-2px, 1px); } 100% { opacity: 0.8; transform: translate(1px, 2px); } }
 
-@keyframes gridScroll { 0% { background-position: 0 0; } 100% { background-position: 0 400px; } }
-@keyframes contentFloat { 0% { transform: translateY(0) rotateX(10deg); } 100% { transform: translateY(-15px) rotateX(5deg); } }
-@keyframes scanLineH { 0% { top: -20px; opacity: 0; } 50% { opacity: 1; } 100% { top: 105%; opacity: 0; } }
 @keyframes gradientFlow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-@keyframes energyCorePulse { 0% { opacity: 0.4; transform: scale(0.8) rotate(0deg); } 100% { opacity: 0.8; transform: scale(1.1) rotate(15deg); } }
 @keyframes logSlideIn { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
 @keyframes glitchStatic {
@@ -2598,8 +2593,8 @@ body.is-desktop .nav-toggle {
 }
 
 .loader-ring { position: absolute; border: 2px solid transparent; border-radius: 50%; width: 100%; height: 100%; }
-.loader-ring.r1 { border-top-color: #00ffea; animation: rotCW 4s linear infinite; }
-.loader-ring.r2 { border-right-color: #0088ff; width: 80%; height: 80%; animation: rotCCW 3s linear infinite; }
+.loader-ring.r1 { border-top-color: #00ffea; animation: rotateCW 4s linear infinite; }
+.loader-ring.r2 { border-right-color: #0088ff; width: 80%; height: 80%; animation: rotateCCW 3s linear infinite; }
 
 .loader-percentage {
     font-size: 3.2rem !important; font-weight: 900 !important; color: #fff !important;
@@ -2690,9 +2685,6 @@ body.low-end .loader-pillar::after {
     animation: none !important;
     display: none !important;
 }
-
-@keyframes rotCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes rotCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
 
 /* =========================================================
    RESPONSIVE OPTIMIZATIONS - MOBILE & TABLET FIXES
@@ -3915,7 +3907,6 @@ p, h1, h2, h3, h4, h5, h6 {
     font-size: 0.875rem;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .kpi-grid {
         grid-template-columns: repeat(2, 1fr);
